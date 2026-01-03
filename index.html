@@ -368,10 +368,6 @@ favoritesTab.onclick=()=>renderHome('');
 document.addEventListener('keydown',e=>{if(e.key==='/'){e.preventDefault();searchInput.focus();}if(e.key==='Escape'&&overlay.classList.contains('active'))exitPlayer.click();});
 window.addEventListener('load',()=>{renderHome('');if('serviceWorker'in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});});
 
-<script src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-‎  <script>
-‎    DisableDevtool({})
-‎  </script>
 </script>
 </body>
 </html>
