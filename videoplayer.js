@@ -1,5 +1,5 @@
 /*
-  app.js
+  videoplayer.js
   ────────────
   Contains all IPTV channels used by index.html.
   Supports: HLS (.m3u8), DASH (.mpd with ClearKey DRM), and YouTube embeds.
