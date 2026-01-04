@@ -8,20 +8,6 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#071025" />
   <link rel="icon" href="nzm.png">
-
-  <script>
-  (function(){
-    // base64("app.js") = "YXBwLmpz"
-    const b64 = "YXBwLmpz";
-    const filename = atob(b64);
-
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = filename + "?v=" + Date.now(); // cache-busting
-    s.async = false;
-    document.head.appendChild(s);
-  })();
-  </script>
   
   <!-- Disable DevTools (Basic Deterrent Only) -->
 <script src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7"></script>
@@ -59,7 +45,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.compiled.min.js"></script>
 
   <!-- Channels -->
-  <script src="channels.js"></script>
+  <script>
+  (function(){
+    // base64("app.js") = "YXBwLmpz"
+    const b64 = "YXBwLmpz";
+    const filename = atob(b64);
+
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = filename + "?v=" + Date.now(); // cache-busting
+    s.async = false;
+    document.head.appendChild(s);
+  })();
+  </script>
   
   <style>
     :root{
