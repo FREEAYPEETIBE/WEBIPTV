@@ -41,19 +41,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.4.0/hls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.compiled.min.js"></script>
-
-  <script>
-  (function(){
-    const b64 = "YXBwLmpz";
-    const filename = atob(b64);
-
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = filename + "?v=" + Date.now();
-    s.async = false;
-    document.head.appendChild(s);
-  })();
-  </script>
   
   <style>
     :root{
@@ -408,5 +395,17 @@ document.addEventListener('keydown',e=>{if(e.key==='/'){e.preventDefault();searc
 window.addEventListener('load',()=>{renderHome('');if('serviceWorker'in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});});
 
 </script>
+  <script>
+  (function(){
+    const b64 = "dmlkZW9wbGF5ZXIuanM=";
+    const filename = atob(b64);
+
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = filename + "?v=" + Date.now();
+    s.async = false;
+    document.head.appendChild(s);
+  })();
+  </script>
 </body>
 </html>
