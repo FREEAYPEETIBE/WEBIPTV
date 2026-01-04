@@ -9,7 +9,6 @@
   <meta name="theme-color" content="#071025" />
   <link rel="icon" href="nzm.png">
   
-  <!-- Disable DevTools (Basic Deterrent Only) -->
 <script src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7"></script>
 <script>
   DisableDevtool({
@@ -21,7 +20,7 @@
 
     clearIntervalWhenDevOpen: true,
     ondevtoolopen: () => {
-      // Optional reaction when DevTools is detected
+      
       document.body.innerHTML = `
         <div style="
           display:flex;
@@ -40,20 +39,17 @@
   });
 </script>
 
-  <!-- HLS + DASH -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.4.0/hls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.compiled.min.js"></script>
 
-  <!-- Channels -->
   <script>
   (function(){
-    // base64("app.js") = "YXBwLmpz"
     const b64 = "YXBwLmpz";
     const filename = atob(b64);
 
     const s = document.createElement('script');
     s.type = 'text/javascript';
-    s.src = filename + "?v=" + Date.now(); // cache-busting
+    s.src = filename + "?v=" + Date.now();
     s.async = false;
     document.head.appendChild(s);
   })();
