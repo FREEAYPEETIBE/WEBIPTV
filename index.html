@@ -9,14 +9,58 @@
   <meta name="theme-color" content="#071025" />
   <link rel="icon" href="nzm.png">
 
+  <script>
+  (function(){
+    // base64("app.js") = "YXBwLmpz"
+    const b64 = "YXBwLmpz";
+    const filename = atob(b64);
+
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = filename + "?v=" + Date.now(); // cache-busting
+    s.async = false;
+    document.head.appendChild(s);
+  })();
+  </script>
+  
+  <!-- Disable DevTools (Basic Deterrent Only) -->
+<script src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7"></script>
+<script>
+  DisableDevtool({
+    disableMenu: true,        // Disable right-click
+    disableSelect: true,      // Disable text selection
+    disableCopy: true,        // Disable copy
+    disableCut: true,
+    disablePaste: true,
+
+    clearIntervalWhenDevOpen: true,
+    ondevtoolopen: () => {
+      // Optional reaction when DevTools is detected
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          height:100vh;
+          background:#000;
+          color:#fff;
+          font-family:sans-serif;
+          text-align:center;
+        ">
+          <h2>⚠ Developer Tools Detected<br>Access Restricted</h2>
+        </div>
+      `;
+    }
+  });
+</script>
+
   <!-- HLS + DASH -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.4.0/hls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.compiled.min.js"></script>
 
   <!-- Channels -->
   <script src="channels.js"></script>
-
-
+  
   <style>
     :root{
       --bg:#050509;
@@ -369,51 +413,6 @@ favoritesTab.onclick=()=>renderHome('');
 document.addEventListener('keydown',e=>{if(e.key==='/'){e.preventDefault();searchInput.focus();}if(e.key==='Escape'&&overlay.classList.contains('active'))exitPlayer.click();});
 window.addEventListener('load',()=>{renderHome('');if('serviceWorker'in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});});
 
-</script>
-  
-  <script>
-  (function(){
-    // base64("app.js") = "YXBwLmpz"
-    const b64 = "YXBwLmpz";
-    const filename = atob(b64);
-
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = filename + "?v=" + Date.now(); // cache-busting
-    s.async = false;
-    document.head.appendChild(s);
-  })();
-  </script>
-  
-  <!-- Disable DevTools (Basic Deterrent Only) -->
-<script src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7"></script>
-<script>
-  DisableDevtool({
-    disableMenu: true,        // Disable right-click
-    disableSelect: true,      // Disable text selection
-    disableCopy: true,        // Disable copy
-    disableCut: true,
-    disablePaste: true,
-
-    clearIntervalWhenDevOpen: true,
-    ondevtoolopen: () => {
-      // Optional reaction when DevTools is detected
-      document.body.innerHTML = `
-        <div style="
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          height:100vh;
-          background:#000;
-          color:#fff;
-          font-family:sans-serif;
-          text-align:center;
-        ">
-          <h2>⚠ Developer Tools Detected<br>Access Restricted</h2>
-        </div>
-      `;
-    }
-  });
 </script>
 </body>
 </html>
